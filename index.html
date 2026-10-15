@@ -4,310 +4,519 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="CV Robin Pangihutan Simbolon - IT Support & System Analyst">
-    <title>CV | Robin Pangihutan Simbolon</title>
+    <meta name="description" content="CV Robin Pangihutan Simbolon">
+    <title>Robin Pangihutan Simbolon | CV</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <style>
+        :root {
+            --navy: #0b1220;
+            --teal: #22d3c5;
+            --ink: #182235;
+            --muted: #64748b;
+        }
+
         * {
-            margin: 0;
-            padding: 0;
             box-sizing: border-box;
         }
 
         body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #f1f5f9;
-            color: #1e293b;
-            line-height: 1.7;
+            margin: 0;
+            background: #edf2f7;
+            color: var(--ink);
+            font-family: "Segoe UI", Arial, sans-serif;
+            line-height: 1.75;
         }
 
-        .container {
-            max-width: 900px;
+        .cv {
+            max-width: 1000px;
             margin: 40px auto;
-            background: #ffffff;
-            border-radius: 15px;
+            background: #fff;
+            border-radius: 22px;
             overflow: hidden;
-            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 25px 70px #0f172a18;
         }
 
-        header {
-            background: linear-gradient(135deg, #123047, #087e8b);
+        .hero {
+            background: linear-gradient(130deg, #0b1220, #12445a);
             color: white;
-            padding: 45px 40px;
+            padding: 42px;
         }
 
-        header h1 {
-            font-size: 32px;
-            margin-bottom: 10px;
+        .hero h1 {
+            font-size: clamp(27px, 4vw, 42px);
+            font-weight: 800;
+            line-height: 1.2;
+            margin: 12px 0;
         }
 
-        header h3 {
-            font-weight: normal;
-            color: #d8f3f5;
-            margin-bottom: 20px;
+        .eyebrow {
+            color: var(--teal);
+            letter-spacing: 3px;
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        /* FOTO PROFIL */
+        .profile-photo {
+            width: 165px;
+            height: 195px;
+            object-fit: cover;
+            object-position: center top;
+            border-radius: 16px;
+            border: 3px solid white;
+            background: #e2e8f0;
         }
 
         .contact {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px 20px;
+            gap: 10px 18px;
             font-size: 14px;
         }
 
         .contact a {
             color: white;
             text-decoration: none;
+            overflow-wrap: anywhere;
         }
 
         .contact a:hover {
-            text-decoration: underline;
+            color: var(--teal);
         }
 
         main {
-            padding: 35px 40px;
+            padding: 15px 42px 42px;
         }
 
         section {
-            margin-bottom: 30px;
+            padding-top: 28px;
         }
 
-        section h2 {
-            font-size: 19px;
-            color: #087e8b;
-            border-bottom: 2px solid #dbe5ec;
-            padding-bottom: 8px;
-            margin-bottom: 15px;
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 16px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 18px;
+        }
+
+        .section-title i {
+            color: #087e83;
+            background: #ddfaf5;
+            padding: 9px;
+            border-radius: 10px;
+        }
+
+        .section-title::after {
+            content: "";
+            height: 1px;
+            background: #e2e8f0;
+            flex: 1;
+        }
+
+        /* RATA KANAN-KIRI */
+        .justify-text {
+            text-align: justify;
         }
 
         .job-title {
-            font-size: 17px;
-            font-weight: bold;
+            font-weight: 800;
+            margin-bottom: 5px;
         }
 
-        .subtitle {
-            color: #64748b;
-            font-size: 14px;
+        .muted {
+            color: var(--muted);
         }
 
-        ul {
-            padding-left: 22px;
-            margin-top: 10px;
+        .timeline {
+            border-left: 2px solid #dce8ee;
+            padding-left: 20px;
+            position: relative;
         }
 
-        li {
-            margin-bottom: 8px;
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: -7px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--teal);
         }
 
-        .education {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 5px 15px;
-        }
-
-        .year {
-            color: #087e8b;
-            font-weight: bold;
+        .date {
+            color: #087e83;
+            background: #e4fbf8;
+            border-radius: 30px;
+            padding: 4px 12px;
+            font-size: 13px;
+            font-weight: 800;
+            white-space: nowrap;
         }
 
         .skills {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 12px;
         }
 
-        .skill-card {
-            background: #f8fafc;
+        .skill {
             border: 1px solid #e2e8f0;
-            border-radius: 8px;
-            padding: 14px;
+            border-radius: 14px;
+            padding: 16px;
+            background: #f9fbfd;
+            transition: 0.2s;
         }
 
-        .skill-card h3 {
+        .skill:hover {
+            border-color: #72ddd2;
+            transform: translateY(-2px);
+        }
+
+        .skill i {
+            font-size: 22px;
+            color: #087e83;
+        }
+
+        .skill h3 {
             font-size: 15px;
-            margin-bottom: 5px;
-            color: #123047;
+            font-weight: 800;
+            margin: 7px 0 3px;
         }
 
-        .skill-card p {
-            font-size: 14px;
-            color: #64748b;
+        .skill p {
+            font-size: 13px;
+            color: var(--muted);
+            margin: 0;
         }
 
         footer {
+            background: var(--navy);
+            color: #cbd5e1;
+            padding: 20px;
             text-align: center;
-            background: #f8fafc;
-            padding: 18px;
-            color: #64748b;
             font-size: 13px;
-            border-top: 1px solid #e2e8f0;
         }
 
-        @media (max-width: 600px) {
-            .container {
-                margin: 0;
-                border-radius: 0;
+        footer strong {
+            color: var(--teal);
+        }
+
+        .print-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            border: 0;
+            background: #087e83;
+            color: white;
+            padding: 12px 18px;
+            border-radius: 30px;
+            font-weight: 700;
+            box-shadow: 0 5px 20px #087e8340;
+        }
+
+        @media (max-width: 650px) {
+            .cv {
+                margin: 8px;
+                border-radius: 16px;
             }
 
-            header {
-                padding: 35px 25px;
+            .hero {
+                padding: 28px 22px;
             }
 
-            header h1 {
-                font-size: 27px;
+            .hero-layout {
+                flex-direction: column-reverse;
+                align-items: flex-start !important;
+            }
+
+            .profile-photo {
+                width: 125px;
+                height: 150px;
             }
 
             main {
-                padding: 30px 25px;
+                padding: 10px 22px 30px;
             }
 
             .skills {
                 grid-template-columns: 1fr;
             }
+
+            .contact {
+                flex-direction: column;
+                gap: 7px;
+            }
+
+            .print-btn {
+                right: 12px;
+                bottom: 12px;
+            }
         }
 
         @media print {
+            @page {
+                size: A4;
+                margin: 12mm;
+            }
+
             body {
                 background: white;
             }
 
-            .container {
+            .cv {
                 margin: 0;
+                max-width: none;
+                border-radius: 0;
                 box-shadow: none;
             }
 
-            header {
-                print-color-adjust: exact;
+            .hero, footer, .skill {
                 -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .print-btn {
+                display: none;
+            }
+
+            section, .skill {
+                break-inside: avoid;
             }
         }
     </style>
 </head>
 
 <body>
-    <div class="container">
 
-        <header>
-            <h1>Robin Pangihutan Simbolon</h1>
-            <h3>Sistem Informasi | IT Support &amp; System Analyst</h3>
+<div class="cv">
 
-            <div class="contact">
-                <span>📍 Medan, Sumatera Utara</span>
-                <a href="tel:+6281262346313">
-                    📞 +62 812-6234-6313
-                </a>
-                <a href="mailto:simbolonrobin06@gmail.com">
-                    ✉️ simbolonrobin06@gmail.com
-                </a>
+    <!-- HEADER -->
+    <header class="hero">
+        <div class="hero-layout d-flex align-items-center gap-4 gap-lg-5">
+
+            <div class="flex-grow-1">
+                <span class="eyebrow">Curriculum Vitae</span>
+
+                <h1>Robin Pangihutan Simbolon</h1>
+
+                <p class="text-lg text-slate-200 mb-4">
+                    Sistem Informasi | IT Support &amp; System Analyst
+                </p>
+
+                <div class="contact">
+                    <span>
+                        <i class="bi bi-geo-alt-fill me-2 text-info"></i>
+                        Medan, Sumatera Utara
+                    </span>
+
+                    <a href="tel:+6281262346313">
+                        <i class="bi bi-telephone-fill me-2 text-info"></i>
+                        +62 812-6234-6313
+                    </a>
+
+                    <a href="mailto:simbolonrobin06@gmail.com">
+                        <i class="bi bi-envelope-fill me-2 text-info"></i>
+                        simbolonrobin06@gmail.com
+                    </a>
+                </div>
             </div>
-        </header>
 
-        <main>
+            <!--
+                FOTO PROFIL:
+                Buat folder assets di repository.
+                Simpan foto dengan nama foto-robin.jpg.
+            -->
+            <div class="flex-shrink-0">
+                <img
+                    src="assets/foto-robin.jpg"
+                    alt="Foto Robin Pangihutan Simbolon"
+                    class="profile-photo"
+                    onerror="this.onerror=null;this.src='https://placehold.co/330x390/173447/ffffff?text=Foto+Profil';"
+                >
+            </div>
 
-            <section>
-                <h2>Profil Singkat</h2>
-                <p>
-                    Saya adalah seorang lulusan Sistem Informasi yang
-                    mengombinasikan keahlian teknis dengan kecerdasan emosional.
-                    Terampil dalam bersosialisasi dan sangat mudah beradaptasi
-                    dengan ritme kerja yang cepat. Memiliki minat besar pada
-                    analisis sistem dan manajemen basis data, dengan fokus pada
-                    penyampaian solusi yang efisien melalui kerja sama tim yang
-                    solid. Teliti, cepat belajar, serta memiliki kemampuan
-                    komunikasi dan analisa data yang baik.
+        </div>
+    </header>
+
+    <main>
+
+        <!-- PROFIL SINGKAT -->
+        <section>
+            <h2 class="section-title">
+                <i class="bi bi-person-lines-fill"></i>
+                Profil Singkat
+            </h2>
+
+            <p class="justify-text">
+                Saya adalah seorang lulusan Sistem Informasi yang
+                mengombinasikan keahlian teknis dengan kecerdasan emosional.
+                Terampil dalam bersosialisasi dan mudah beradaptasi dengan
+                ritme kerja yang cepat. Memiliki minat besar pada analisis
+                sistem dan manajemen basis data, dengan fokus pada
+                penyampaian solusi yang efisien melalui kerja sama tim yang
+                solid. Teliti, cepat belajar, serta memiliki kemampuan
+                komunikasi dan analisa data yang baik.
+            </p>
+        </section>
+
+        <!-- PENGALAMAN KERJA -->
+        <section>
+            <h2 class="section-title">
+                <i class="bi bi-briefcase-fill"></i>
+                Pengalaman Kerja
+            </h2>
+
+            <div class="timeline">
+                <h3 class="job-title">
+                    Universitas Katolik Santo Thomas — Medan
+                </h3>
+
+                <p class="muted small">
+                    Dukungan akademik · Fakultas Ilmu Komputer
                 </p>
-            </section>
 
-            <section>
-                <h2>Pengalaman Kerja</h2>
-
-                <p class="job-title">
-                    Universitas Katolik Santo Thomas - Medan
-                </p>
-
-                <ul>
-                    <li>
-                        Membantu dosen Fakultas Ilmu Komputer dalam mengampu
-                        mata kuliah Analisa &amp; Perancangan Sistem Informasi,
-                        Sistem Informasi Berbasis Web, Keamanan Sistem Basis
-                        Data, Pemrosesan Bahasa Alami, dan Analisa Kinerja
-                        Sistem Informasi.
+                <ul class="ps-3">
+                    <li class="justify-text mb-2">
+                        Membantu dosen Fakultas Ilmu Komputer dalam
+                        mengampu mata kuliah Analisa &amp; Perancangan
+                        Sistem Informasi, Sistem Informasi Berbasis Web,
+                        Keamanan Sistem Basis Data, Pemrosesan Bahasa
+                        Alami, dan Analisa Kinerja Sistem Informasi.
                     </li>
-                    <li>
-                        Membimbing mahasiswa dalam pemahaman materi praktikum
-                        dan evaluasi tugas berbasis teknologi.
+
+                    <li class="justify-text">
+                        Membimbing mahasiswa dalam pemahaman materi
+                        praktikum dan evaluasi tugas berbasis teknologi.
                     </li>
                 </ul>
-            </section>
+            </div>
+        </section>
 
-            <section>
-                <h2>Pendidikan</h2>
+        <!-- PENDIDIKAN -->
+        <section>
+            <h2 class="section-title">
+                <i class="bi bi-mortarboard-fill"></i>
+                Pendidikan
+            </h2>
 
-                <div class="education">
-                    <p class="job-title">
-                        Universitas Katolik Santo Thomas - Medan
-                    </p>
-                    <span class="year">2021 - 2025</span>
+            <div class="timeline">
+                <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
+                    <h3 class="job-title">
+                        Universitas Katolik Santo Thomas — Medan
+                    </h3>
+
+                    <span class="date">2021–2025</span>
                 </div>
 
-                <p>Sistem Informasi | IPK 3.49</p>
+                <p>Sistem Informasi <strong>| IPK 3.49</strong></p>
 
-                <p class="subtitle">
-                    Mata Kuliah Relevan: Sistem Informasi, Analisa dan
-                    Perancangan Sistem Informasi, Pemrograman Web, dan
-                    Enterprise Resource Planning.
-                </p>
-            </section>
+                <p class="muted mb-2">Mata kuliah relevan:</p>
 
-            <section>
-                <h2>Keahlian Teknis dan Non-Teknis</h2>
+                <div class="flex flex-wrap gap-2">
+                    <span class="badge rounded-pill text-bg-light border">
+                        Sistem Informasi
+                    </span>
 
-                <div class="skills">
+                    <span class="badge rounded-pill text-bg-light border">
+                        Analisa dan Perancangan Sistem Informasi
+                    </span>
 
-                    <div class="skill-card">
-                        <h3>Microsoft Office</h3>
-                        <p>Word, Excel, PowerPoint</p>
-                    </div>
+                    <span class="badge rounded-pill text-bg-light border">
+                        Pemrograman Web
+                    </span>
 
-                    <div class="skill-card">
-                        <h3>Pengembangan Web</h3>
-                        <p>PHP Native, Laravel, CodeIgniter</p>
-                    </div>
-
-                    <div class="skill-card">
-                        <h3>IT Support</h3>
-                        <p>Instalasi Software</p>
-                    </div>
-
-                    <div class="skill-card">
-                        <h3>Public Speaking</h3>
-                        <p>Komunikasi dan presentasi</p>
-                    </div>
-
-                    <div class="skill-card">
-                        <h3>Manajemen Waktu</h3>
-                        <p>Pengelolaan waktu dan prioritas</p>
-                    </div>
-
-                    <div class="skill-card">
-                        <h3>Ketelitian dan Akurasi</h3>
-                        <p>Memperhatikan detail pekerjaan</p>
-                    </div>
-
-                    <div class="skill-card">
-                        <h3>Kerja Sama Tim</h3>
-                        <p>Kolaborasi dan kerja sama</p>
-                    </div>
-
+                    <span class="badge rounded-pill text-bg-light border">
+                        Enterprise Resource Planning
+                    </span>
                 </div>
-            </section>
+            </div>
+        </section>
 
-        </main>
+        <!-- KEAHLIAN -->
+        <section>
+            <h2 class="section-title">
+                <i class="bi bi-code-slash"></i>
+                Keahlian Teknis &amp; Non-Teknis
+            </h2>
 
-        <footer>
-            &copy; 2026 Robin Pangihutan Simbolon | CV Online
-        </footer>
+            <div class="skills">
 
-    </div>
+                <div class="skill">
+                    <i class="bi bi-file-earmark-spreadsheet"></i>
+                    <h3>Microsoft Office</h3>
+                    <p>Word, Excel, PowerPoint</p>
+                </div>
+
+                <div class="skill">
+                    <i class="bi bi-code-square"></i>
+                    <h3>Pengembangan Web</h3>
+                    <p>PHP Native, Laravel, CodeIgniter</p>
+                </div>
+
+                <div class="skill">
+                    <i class="bi bi-pc-display"></i>
+                    <h3>IT Support</h3>
+                    <p>Instalasi software</p>
+                </div>
+
+                <div class="skill">
+                    <i class="bi bi-chat-dots"></i>
+                    <h3>Public Speaking</h3>
+                    <p>Komunikasi dan presentasi</p>
+                </div>
+
+                <div class="skill">
+                    <i class="bi bi-clock-history"></i>
+                    <h3>Manajemen Waktu</h3>
+                    <p>Pengelolaan waktu dan prioritas</p>
+                </div>
+
+                <div class="skill">
+                    <i class="bi bi-check2-circle"></i>
+                    <h3>Ketelitian dan Akurasi</h3>
+                    <p>Memperhatikan detail pekerjaan</p>
+                </div>
+
+                <div class="skill">
+                    <i class="bi bi-people"></i>
+                    <h3>Kerja Sama Tim</h3>
+                    <p>Kolaborasi dan kerja sama</p>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <strong>Robin Pangihutan Simbolon</strong>
+        <span class="mx-2">|</span>
+        CV Online
+    </footer>
+
+</div>
+
+<!-- TOMBOL CETAK / SIMPAN PDF -->
+<button class="print-btn" onclick="window.print()">
+    <i class="bi bi-printer-fill me-2"></i>
+    Cetak / Simpan PDF
+</button>
+
 </body>
 </html>
